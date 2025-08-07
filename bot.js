@@ -473,8 +473,7 @@ client.on('message', async (message) => {
     
     // Help command
     if (msg === '!help' || msg === '!h') {
-        const helpText = `
-🤖 *TikTok Downloader Bot v2.1*
+        const helpText = `🤖 *TikTok Downloader Bot v2.1*
 
 *📋 Commands:*
 • \`!t [TikTok URL]\` - Download TikTok video
@@ -523,8 +522,7 @@ The bot uses ${TIKTOK_APIS.length} different APIs and multiple send methods for 
             apiStatsText += `• ${apiName}: ${stats.successes}/${stats.attempts} (${apiSuccessRate}%)\n`;
         });
             
-        const statsText = `
-📊 *Global Bot Statistics*
+        const statsText = `📊 *Global Bot Statistics*
 
 ⏱️ *Uptime:* ${uptime} minutes
 📥 *Total Downloads:* ${botStats.totalDownloads}
@@ -535,7 +533,6 @@ The bot uses ${TIKTOK_APIS.length} different APIs and multiple send methods for 
 
 *🌐 API Performance:*
 ${apiStatsText}
-
 🚀 *Bot Status:* Running smoothly!
 🕐 *Started:* ${botStats.startTime.toLocaleString()}
         `;
@@ -549,8 +546,7 @@ ${apiStatsText}
         const userSuccessRate = userStats.downloads > 0 ? 
             Math.round((userStats.successful / userStats.downloads) * 100) : 0;
             
-        const personalStatsText = `
-📊 *Your Personal Statistics*
+        const personalStatsText = `📊 *Your Personal Statistics*
 
 📥 *Your Downloads:* ${userStats.downloads}
 ✅ *Successful:* ${userStats.successful}
@@ -560,8 +556,7 @@ ${apiStatsText}
 
 ${userStats.downloads === 0 ? 
     '💡 *Get started by sending:* `!t [TikTok URL]`' : 
-    '🎉 *Thanks for using TikTok Bot!*'
-}
+    '🎉 *Thanks for using TikTok Bot!*'}
         `;
         await message.reply(personalStatsText);
         return;
@@ -746,8 +741,7 @@ ${result.playCount ? `👀 *Views:* ${utils.formatNumber(result.playCount)}` : '
     }
     
     if (msg.toLowerCase().includes('bot info') || msg === '!info') {
-        const infoText = `
-🤖 *TikTok WhatsApp Bot Information*
+        const infoText = `🤖 *TikTok WhatsApp Bot Information*
 
 *🔧 Technical Details:*
 • Version: 2.1.0 (Enhanced)
@@ -831,7 +825,8 @@ setInterval(() => {
             try {
                 const stats = fs.statSync(filePath);
                 const ageMinutes = (now - stats.mtime.getTime()) / 1000 / 60;
-                    if (ageMinutes > 30) {
+                
+                if (ageMinutes > 30) {
                     fs.unlinkSync(filePath);
                     console.log(`🗑️ Auto-cleaned old file: ${file}`);
                 }
